@@ -37,6 +37,13 @@ $ bash target/bin/dbtester
 
 ## Optional Tooling
 
+### Using psql
+
+```
+docker exec -i -t dbserver /usr/bin/psql -h localhost -U postgres
+```
+
+
 ### Install pgadmin3 as Postgres admin UI
 
 ```
