@@ -1,0 +1,6 @@
+.vagrant
+.idea
+**/*.iml
+src/main/resources/liquibase.properties
+target/
+
