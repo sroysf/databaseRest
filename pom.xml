@@ -81,6 +81,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.2.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.2</version>
+        </dependency>
 
 
         <!-- Testing -->
@@ -153,6 +158,10 @@
                                 <program>
                                     <mainClass>${module.main.class}</mainClass>
                                     <id>appmain</id>
+                                </program>
+                                <program>
+                                    <mainClass>us.sroysf.tools.DBTester</mainClass>
+                                    <id>dbtester</id>
                                 </program>
                             </programs>
                         </configuration>
