@@ -38,6 +38,14 @@ $ mvn -DskipTests package -Dbin
 $ bash target/bin/dbtester
 ```
 
+### Create the database
+
+Run psql, as shown below. Then:
+
+```
+postgres=# create database carstore;
+```
+
 ### Schema Management
 
 The schema is managed using the open source [liquibase](https://www.liquibase.org/documentation/maven/index.html) tool, via Maven plugin interface.
@@ -58,6 +66,19 @@ Construct the schema using [liquibase changesets](https://www.liquibase.org/docu
 docker exec -i -t dbserver /usr/bin/psql -h localhost -U postgres
 ```
 
+Try listing the databases.
+
+```
+postgres=# \l
+```
+
+You should see the new database in the list of databases.
+
+Explore other commands:
+
+```
+postgres=# \?
+```
 
 ### Install pgadmin3 as Postgres admin UI
 

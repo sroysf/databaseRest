@@ -8,7 +8,7 @@ public class DBTester {
     public static void main(String[] args) {
         // auto close connection
         try (Connection conn = DriverManager.getConnection(
-                "jdbc:postgresql://127.0.0.1:5432/postgres", "postgres", "testingpg123")) {
+                "jdbc:postgresql://127.0.0.1:5432/carstore", "postgres", "testingpg123")) {
 
             if (conn != null) {
                 System.out.println("Connected to the database!");
