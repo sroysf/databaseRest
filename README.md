@@ -14,6 +14,9 @@ You must have the following infrastructure components already installed and work
 
 ## Database setup
 
+
+### PostgreSQL
+
 This project uses Postgres 11 as the database server, and all database code makes this assumption. 
 It would be relatively easy to adjust the template to use a different database, but that's outside
 the scope of this document. 
@@ -34,6 +37,18 @@ To validate that the application can talk to the database, you can run the dbtes
 $ mvn -DskipTests package -Dbin
 $ bash target/bin/dbtester
 ```
+
+### Schema Management
+
+The schema is managed using the open source [liquibase](https://www.liquibase.org/documentation/maven/index.html) tool, via Maven plugin interface.
+
+To install / update the schema, just run the following command:
+
+```
+$ mvn liquibase:update
+```
+
+Construct the schema using [liquibase changesets](https://www.liquibase.org/documentation/sql_format.html) by editing the __db.changelog.sql__ file.
 
 ## Optional Tooling
 
