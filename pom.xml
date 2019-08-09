@@ -160,7 +160,7 @@
                                     <id>appmain</id>
                                 </program>
                                 <program>
-                                    <mainClass>us.sroysf.tools.DBTester</mainClass>
+                                    <mainClass>us.sroysf.tools.MyBatisTester</mainClass>
                                     <id>dbtester</id>
                                 </program>
                             </programs>

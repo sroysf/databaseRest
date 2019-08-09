@@ -111,3 +111,18 @@ For fatjar deployment:
 $ mvn -DskipTests package -Dfatjar
 ```
 
+# Development
+
+This project provides samples of various functionality useful for quickly building a RDBMS backed REST API.
+
+## Database Manipulation
+
+To manipulate the database from the application, this project uses the [MyBatis 3](http://www.mybatis.org/mybatis-3/) framework.
+
+Without repeating all of the MyBatis documentation, in general you will need 3 things per database entity:
+
+- An entity pojo (see Account.java)
+- An entity mapper interface (see AccountMapper.java)
+- A sql mapper xml definition (see AccountMapper.xml)
+
+For an example of how to actually interact with the database, see MyBatisTester.java
