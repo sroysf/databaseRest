@@ -159,10 +159,6 @@
                                     <mainClass>${module.main.class}</mainClass>
                                     <id>appmain</id>
                                 </program>
-                                <program>
-                                    <mainClass>us.sroysf.tools.MyBatisTester</mainClass>
-                                    <id>dbtester</id>
-                                </program>
                             </programs>
                         </configuration>
                         <executions>

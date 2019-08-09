@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="us.sroysf.db.mappers.MovieMapper">
+
+    <resultMap type="Movie" id="MovieResult">
+        <id property="id" column="movie_id"/>
+        <result property="title" column="title"/>
+        <result property="releaseYear" column="release_year"/>
+        <association property="director" column="director_id" select="us.sroysf.db.mappers.DirectorMapper.findDirectorById"/>
+    </resultMap>
+
+    <select id="findMovieById" parameterType="int" resultMap="MovieResult">
+        SELECT id, director_id, title, release_year
+        FROM movie
+        WHERE id=#{id}
+    </select>
+
+    <select id="findAllMovies" resultMap="MovieResult">
+        SELECT id, director_id, title, release_year
+        FROM movie
+    </select>
+
+    <insert id="insertMovie" parameterType="Movie" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO Movie (title, release_year, director_id)
+        VALUES(#{title}, #{releaseYear}, #{director.id})
+        RETURNING id
+    </insert>
+</mapper>

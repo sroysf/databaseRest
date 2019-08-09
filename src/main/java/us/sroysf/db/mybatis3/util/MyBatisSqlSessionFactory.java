@@ -1,4 +1,4 @@
-package com.mybatis3.util;
+package us.sroysf.db.mybatis3.util;
 import java.io.*;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.*;

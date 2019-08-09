@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="us.sroysf.db.mappers.ActorMapper">
+    
+    <resultMap type="Actor" id="ActorResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="findAllActors" resultMap="ActorResult">
+        SELECT id, name
+        FROM actor
+    </select>
+
+    <select id="findActorById" parameterType="int" resultMap="ActorResult">
+        SELECT id, name
+        FROM actor
+        WHERE id=#{id}
+    </select>
+
+    <insert id="insertActor" parameterType="Actor" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO actor (name)
+        VALUES(#{name})
+        RETURNING id
+    </insert>
+</mapper>

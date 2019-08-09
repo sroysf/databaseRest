@@ -43,7 +43,7 @@ $ bash target/bin/dbtester
 Run psql, as shown below. Then:
 
 ```
-postgres=# create database carstore;
+postgres=# create database hollywood;
 ```
 
 ### Schema Management
@@ -115,14 +115,21 @@ $ mvn -DskipTests package -Dfatjar
 
 This project provides samples of various functionality useful for quickly building a RDBMS backed REST API.
 
-## Database Manipulation
+## Database Interaction
 
 To manipulate the database from the application, this project uses the [MyBatis 3](http://www.mybatis.org/mybatis-3/) framework.
 
 Without repeating all of the MyBatis documentation, in general you will need 3 things per database entity:
 
-- An entity pojo (see Account.java)
-- An entity mapper interface (see AccountMapper.java)
-- A sql mapper xml definition (see AccountMapper.xml)
+- An entity pojo (see Movie.java)
+- An entity mapper interface (see MovieMapper.java)
+- A sql mapper xml definition (see MovieMapper.xml)
+- References to entity mybatis-config.xml
 
 For an example of how to actually interact with the database, see MyBatisTester.java
+
+# Testing
+
+```
+mvn test
+```
