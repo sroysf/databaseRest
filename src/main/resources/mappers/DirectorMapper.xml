@@ -23,6 +23,8 @@
     <insert id="insertDirector" parameterType="Director" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO director (name)
         VALUES(#{name})
+        ON CONFLICT ON CONSTRAINT director_name_key
+        DO NOTHING
         RETURNING id
     </insert>
 </mapper>

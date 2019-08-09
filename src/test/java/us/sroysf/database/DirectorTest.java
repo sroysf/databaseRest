@@ -42,4 +42,27 @@ public class DirectorTest {
             throw ex;
         }
     }
+
+    // Demonstrates that we can do duplicate inserts without harm using postgres upsert functionality
+    @Test
+    public void testUpsert() {
+        try (SqlSession sqlSession = MyBatisSqlSessionFactory.openSession()) {
+
+            DirectorMapper directorMapper = sqlSession.getMapper(DirectorMapper.class);
+
+            Director jamesCameron = new Director();
+            jamesCameron.setName("James Cameron");
+            directorMapper.insertDirector(jamesCameron);
+
+            // Now do it again a few times
+            directorMapper.insertDirector(jamesCameron);
+            directorMapper.insertDirector(jamesCameron);
+
+            List<Director> allDirectors = directorMapper.findAllDirectors();
+            assertEquals(1, allDirectors.size());
+            assertEquals(jamesCameron.getName(), allDirectors.get(0).getName());
+        } catch (Exception ex) {
+            throw ex;
+        }
+    }
 }
