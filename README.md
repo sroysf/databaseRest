@@ -119,17 +119,29 @@ This project provides samples of various functionality useful for quickly buildi
 
 To manipulate the database from the application, this project uses the [MyBatis 3](http://www.mybatis.org/mybatis-3/) framework.
 
-Without repeating all of the MyBatis documentation, in general you will need 3 things per database entity:
+Without repeating all of the MyBatis documentation, in general you will need these things per database entity:
 
 - An entity pojo (see Movie.java)
 - An entity mapper interface (see MovieMapper.java)
 - A sql mapper xml definition (see MovieMapper.xml)
-- References to entity mybatis-config.xml
+- References to entity in mybatis-config.xml
 
 For an example of how to actually interact with the database, see MyBatisTester.java
+
+## User Interface
+
+### Interactive Command Line
+
+For interactive command line functionality, this projects comes packaged with examples using [jline 3](https://github.com/jline/jline3)
+
+To try out the interactive command line interface, build the project and then try:
+
+```
+$ target/bin/console
+```
 
 # Testing
 
 ```
-mvn test
+$ mvn test
 ```
